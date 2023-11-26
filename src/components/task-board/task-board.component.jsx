@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AppDataContext } from "../../context/app-data.context";
-import TaskCard from "../task-card/task-card.component";
+import "./task-board.styles.scss";
+import TaskList from "../task-list/task-list.component";
 
 const TaskBoard = () => {
   const { tickets, grouping } = useContext(AppDataContext);
@@ -10,39 +11,49 @@ const TaskBoard = () => {
   const [ticketsByUser, setTicketsByUser] = useState({});
 
   useEffect(() => {
+    let ticketsStatus = {};
+    let ticketsPriority = {};
+    let ticketsUser = {};
+
     tickets.forEach((ticket) => {
-      if (ticket.status in ticketsByStatus) {
-        ticketsByStatus[ticket.status].push(ticket);
+      if (ticket.status in ticketsStatus) {
+        ticketsStatus[ticket.status].push(ticket);
       } else {
-        ticketsByStatus[ticket.status] = [ticket];
+        ticketsStatus[ticket.status] = [ticket];
       }
 
-      if (ticket.priority in ticketsByPriority) {
-        ticketsByPriority[ticket.priority].push(ticket);
+      if (ticket.priority in ticketsPriority) {
+        ticketsPriority[ticket.priority].push(ticket);
       } else {
-        ticketsByPriority[ticket.priority] = [ticket];
+        ticketsPriority[ticket.priority] = [ticket];
       }
 
-      if (ticket.userId in ticketsByUser) {
-        ticketsByUser[ticket.userId].push(ticket);
+      if (ticket.userId in ticketsUser) {
+        ticketsUser[ticket.userId].push(ticket);
       } else {
-        ticketsByUser[ticket.userId] = [ticket];
+        ticketsUser[ticket.userId] = [ticket];
       }
     });
+
+    setTicketsByPriority(ticketsPriority);
+    setTicketsByStatus(ticketsStatus);
+    setTicketsByUser(ticketsUser);
   }, [tickets]);
 
   return (
     <div className="task-board">
-      <TaskCard
-        task={{
-          id: "CAM-3",
-          title: "Optimize Database Queries for Performance",
-          tag: ["Feature Request"],
-          userId: "usr-2",
-          status: "Todo",
-          priority: 4,
-        }}
-      />
+      {grouping === "status" &&
+        Object.keys(ticketsByStatus).map((key) => (
+          <TaskList key={key} tasks={ticketsByStatus[key]} />
+        ))}
+      {grouping === "priority" &&
+        Object.keys(ticketsByPriority).map((key) => (
+          <TaskList key={key} tasks={ticketsByPriority[key]} />
+        ))}
+      {grouping === "user" &&
+        Object.keys(ticketsByUser).map((key) => (
+          <TaskList key={key} tasks={ticketsByUser[key]} />
+        ))}
     </div>
   );
 };

@@ -1,0 +1,42 @@
+.task-list {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 20px 10px 20px;
+
+  .task-list-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+
+    .task-list-title {
+      display: flex;
+      flex-direction: row;
+      font-size: 16px;
+      font-weight: 600;
+      align-items: center;
+
+      span {
+        margin-left: 10px;
+      }
+      .task-length {
+        margin-left: 10px;
+        font-size: 14px;
+        font-weight: normal;
+        color: #3c3c3c;
+      }
+    }
+    .more-options {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 40px;
+      justify-content: space-between;
+      color: #393838;
+    }
+  }
+
+  @media (max-width: 768px) {
+    margin: 20px 8px 10px 8px;
+  }
+}

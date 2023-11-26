@@ -1,0 +1,11 @@
+.task-board {
+  display: flex;
+  margin: 0 40px 40px 40px;
+  flex-direction: row;
+  overflow-x: auto;
+  padding-top: 80px;
+
+  @media (max-width: 768px) {
+    margin: 0 5px 40px 5px;
+  }
+}

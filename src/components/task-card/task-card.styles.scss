@@ -1,51 +1,44 @@
 .task-card {
-  width: 350px;
+  width: 300px;
   background: #fcfcfd;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   border: 1px solid #c4c4c6;
-  box-shadow: 0px 1.5px 1.5px #c4c4c6;
+  box-shadow: 0px 1px 1px #dadada;
   padding: 10px;
   border-radius: 10px;
-  padding: 10px;
+  padding: 8px;
+  margin-bottom: 12px;
 
   .task-details {
-    width: auto;
+    width: calc(100% - 50px);
     margin-left: 10px;
     .task-id {
       color: #696969;
-      font-size: 15px;
-      margin-bottom: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      margin: 5px 0px 10px 0px;
     }
     .task-stat-title {
       display: flex;
       flex-direction: row;
       margin-bottom: 20px;
       .task-title {
-        font-size: 17px;
+        font-size: 15px;
       }
     }
     .task-priority-tag {
       display: flex;
       flex-direction: row;
       margin-bottom: 10px;
-      .priority-icon {
-        width: 20px;
-        padding: 5px;
-        border: 1px solid #e7e5e5;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        border-radius: 10px;
-      }
-      .priority-text {
-        margin-left: 5px;
-        font-size: 15px;
-      }
     }
   }
 
+  &:hover {
+    scale: 1.02;
+    transition: 0.2s;
+  }
   @media (max-width: 768px) {
     width: 300px;
     .task-details {
