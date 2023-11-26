@@ -1,7 +1,6 @@
 .navbar {
   background-color: white;
   width: 100%;
-  position: fixed;
   height: 70px;
   border-bottom: 1px solid #e6e6e6;
   display: flex;
@@ -34,21 +33,26 @@
     border: 1.5px solid #e8e9eb;
     box-shadow: #e8e9eb 0px 1px 3px;
     border-radius: 10px;
-  }
-  .dropdown-options {
-    width: 90%;
-    color: #676767;
-    display: flex;
-    justify-content: space-between;
+    z-index: 999;
 
-    select {
-      width: 85px;
-      border: 2px solid #e8e9eb;
-      border-radius: 5px;
+    .dropdown-options {
+      width: 90%;
+      color: #676767;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
 
-      option {
-        color: #676767;
+      select {
+        width: 85px;
+        padding: 3px;
         font-size: 14px;
+        border: 2px solid #e8e9eb;
+        border-radius: 5px;
+
+        option {
+          color: #676767;
+          font-size: 14px;
+        }
       }
     }
   }

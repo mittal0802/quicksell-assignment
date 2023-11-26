@@ -1,0 +1,34 @@
+.user-icon {
+  position: relative;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: 35px; // Set the size of the circle
+  height: 35px; // Set the size of the circle
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.inactive {
+    .status-dot {
+      background-color: rgb(158, 158, 158);
+    }
+  }
+
+  .user-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .status-dot {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 13px; // Size of the dot
+    height: 13px; // Size of the dot
+    background-color: #28a745; // Green color for active status
+    border-radius: 50%;
+  }
+}
