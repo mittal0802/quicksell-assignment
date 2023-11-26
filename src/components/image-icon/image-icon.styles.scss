@@ -1,7 +1,7 @@
 .user-icon {
   position: relative;
-  margin-top: 10px;
-  margin-right: 10px;
+  margin-top: 5px;
+  margin-right: 5px;
   width: 35px; // Set the size of the circle
   height: 35px; // Set the size of the circle
   overflow: hidden;
@@ -17,7 +17,7 @@
 
   .user-image {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     border-radius: 50%;
   }
@@ -29,6 +29,7 @@
     width: 13px; // Size of the dot
     height: 13px; // Size of the dot
     background-color: #28a745; // Green color for active status
+    border: 2px solid #fff;
     border-radius: 50%;
   }
 }

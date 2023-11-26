@@ -30,7 +30,7 @@ const TaskBoard = () => {
       }
     });
   }, [tickets]);
-  console.log(ticketsByStatus);
+
   return (
     <div className="task-board">
       <TaskCard
