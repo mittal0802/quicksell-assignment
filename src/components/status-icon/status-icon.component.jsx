@@ -8,7 +8,7 @@ const StatusIcon = ({ status }) => {
   return (
     <div
       className="task-status"
-      style={{ marginRight: "5px", marginTop: "2px" }}
+      style={{ marginRight: "5px", marginTop: "2px", fontSize: "12px" }}
     >
       {status === "Done" && <FcOk />}
       {status === "In progress" && (
