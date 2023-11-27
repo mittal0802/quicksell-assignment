@@ -16,9 +16,11 @@ const priorityName = {
   4: "Urgent",
 };
 
-const TaskList = ({ tasks }) => {
+const TaskList = ({ tasks, taskKey }) => {
   const { grouping, ordering, users } = useContext(AppDataContext);
-  const userName = users.find((user) => user.id === tasks[0].userId).name;
+
+  const userName =
+    grouping == "user" ? users.find((user) => user.id === taskKey).name : null;
 
   if (ordering === "title") {
     tasks.sort((a, b) => {
@@ -40,14 +42,14 @@ const TaskList = ({ tasks }) => {
         <div className="task-list-title">
           {grouping === "user" && (
             <Fragment>
-              <ImageIcon userId={tasks[0].userId} />
+              <ImageIcon userId={taskKey} />
               <span>{userName}</span>
             </Fragment>
           )}
           {grouping === "status" && (
             <Fragment>
-              <StatusIcon status={tasks[0].status} />
-              <span>{tasks[0].status}</span>
+              <StatusIcon status={taskKey} />
+              <span>{taskKey}</span>
             </Fragment>
           )}
           {grouping === "priority" && (

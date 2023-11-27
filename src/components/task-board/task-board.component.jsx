@@ -11,7 +11,13 @@ const TaskBoard = () => {
   const [ticketsByUser, setTicketsByUser] = useState({});
 
   useEffect(() => {
-    let ticketsStatus = {};
+    let ticketsStatus = {
+      Backlog: [],
+      Todo: [],
+      "In progress": [],
+      Done: [],
+      Cancelled: [],
+    };
     let ticketsPriority = {};
     let ticketsUser = {};
 
@@ -44,15 +50,15 @@ const TaskBoard = () => {
     <div className="task-board">
       {grouping === "status" &&
         Object.keys(ticketsByStatus).map((key) => (
-          <TaskList key={key} tasks={ticketsByStatus[key]} />
+          <TaskList key={key} tasks={ticketsByStatus[key]} taskKey={key} />
         ))}
       {grouping === "priority" &&
         Object.keys(ticketsByPriority).map((key) => (
-          <TaskList key={key} tasks={ticketsByPriority[key]} />
+          <TaskList key={key} tasks={ticketsByPriority[key]} taskKey={key} />
         ))}
       {grouping === "user" &&
         Object.keys(ticketsByUser).map((key) => (
-          <TaskList key={key} tasks={ticketsByUser[key]} />
+          <TaskList key={key} tasks={ticketsByUser[key]} taskKey={key} />
         ))}
     </div>
   );

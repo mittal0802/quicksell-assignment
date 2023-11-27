@@ -6,6 +6,7 @@
   .task-list-header {
     display: flex;
     flex-direction: row;
+    width: 250px;
     justify-content: space-between;
     margin-bottom: 10px;
 
@@ -40,5 +41,9 @@
 
   @media (max-width: 768px) {
     margin: 20px 8px 10px 8px;
+
+    .task-list-header {
+      width: 260px;
+    }
   }
 }
